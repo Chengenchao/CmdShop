@@ -18,3 +18,16 @@
 ## 四、要求
 
 - 采用面向对象的思想去实现，根据需求，自己去设计相应的类
+
+
+
+
+
+## 五、 github 上传Cmdshop project
+- settings -> Developer settings ->Personal access token
+token 是身份标识
+    Token [c542c0f9e89dee41de7e90a2c16ac4e8a0d90a06]
+1. IDEA 中Files->Settings->Version control->Github-> + ->Enter Token ->粘贴入Token码
+2. 点击 VCS->import Version control->Share project on Github
+
+## 六、创建users.xlsx
