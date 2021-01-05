@@ -31,3 +31,16 @@ token 是身份标识
 2. 点击 VCS->import Version control->Share project on Github
 
 ## 六、创建users.xlsx
+ "请输入用户名：".sout回车---System.out.println("请输入用户名：");
+ 
+ ## 七、接受键盘输入
+ ```java
+ Scanner sc = new Scanner(System.in)
+ String username =sc.next();//把键盘输入的东西给username
+
+```
+## 八、读取excel
+java 用POI读取excel     ALT+INSERT  给所有的属性增加SETTER和GETTER  [成员方法]
+                        
+
+
