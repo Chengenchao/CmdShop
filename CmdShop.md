@@ -1,3 +1,8 @@
+# 项目目的
+- 如何进行实体类的抽取
+- 如何创建对象
+- 如何给对象赋值
+- 
 
 
 ## 一、登录实现
@@ -41,6 +46,47 @@ token 是身份标识
 ```
 ## 八、读取excel
 java 用POI读取excel     ALT+INSERT  给所有的属性增加SETTER和GETTER  [成员方法]
-                        
+桌面的excel要复制进去 程序
+- ALT+INSERT  给所有的属性增加SETTER和GETTER                  
+
+
+## 九、项目技术栈
+- 类
+- 对象
+- 数组
+- 流程控制
+- POI(读取Excel)
+- 接受键盘输入（Scanner）
+- 字符串的比较（equals）
+- 增强for循环
+- 文件路径
+
+## 十、github的开发模式
+- master创建分支；每个项目组成成员从master创建一个自己的分支，每天下班前，测试完毕没有问题的情况下再合并到master中
+- 项目组成的成员fork，每天下班前测试完毕没有问题的情况下，然后给创建仓库的人（项目经理或组长）提交PR（pull request）
+
+## 十一、密码是纯数字的bug解决
+### 11.1 在Readexcel中 getValue中
+- String 方法
+- 使用DecimalFormat类的format方法 //解决电话密码的问题
+
+## 十二、改变读取user.xlsx的方式（getResourceAsStream的方式）
+    路径不要写死 InputStream in
+
+## 十三、解决用户名或密码错误，提示用户名重新输入
+### 13.1 解决方案：循环
+
+- while  不确定次数
+- for 确定次数
+
+- 代码格式化 CTRL+ALT+L
+
+
+
+
+
+
+
+
 
 
