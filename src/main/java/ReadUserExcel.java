@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.text.DecimalFormat;
 
 
-public class ReadExcel {
+public class ReadUserExcel {
     /*
     readExcel是什么方法？成员方法
      */
@@ -50,7 +50,7 @@ public class ReadExcel {
 
     private String getValue(XSSFCell cell) {
         String value;
-        CellType type = cell.getCellTypeEnum();
+        CellType type = cell.getCellType();
 
         switch (type) {
             case STRING:
@@ -68,7 +68,7 @@ public class ReadExcel {
                 /* = cell.getNumericCellValue() + "";//非字符串类型和一个空字符串相连，最终类型是string
                 int index=value.lastIndexOf(".");
                 value=value.substring(0,index);*/
-                System.out.println("处理后的："+value);
+                //System.out.println("处理后的："+value);
                 break;
             case FORMULA:
                 value = cell.getCellFormula();
