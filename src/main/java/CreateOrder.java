@@ -48,12 +48,16 @@ public class CreateOrder {
                         cell.setCellValue(productNum);
 
                     }else if(j==3){
-                        cell.setCellValue(order.getTotalPay());
+                        Map<Integer,Float> totalAmmoutPerProduct=order.getTotalAmmountPerProduct();
+                        Float productTotalPay=totalAmmoutPerProduct.get(pId);
+                        cell.setCellValue(productTotalPay);
                     }else if(j==4){
-                        cell.setCellValue(order.getActualPay());
-                    }else if(j==5){
+                        Map<Integer,Float> actualPay=order.getActualPay();
+                        Float productactualPay=actualPay.get(pId);
+                        cell.setCellValue(productactualPay);
+                    }/*else if(j==5){
                         cell.setCellValue(order.getOrderDate());
-                    }
+                    }*/
                     //cellj.setCellValue([i][j]);
                 }
             }

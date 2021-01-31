@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class Test {
     static Product carts[] = new Product[3];//创建购物车（用数组模拟）
     static int count = 0;
+    static Map<Integer,Integer> ammount =new HashMap<Integer, Integer>();
+    static Map<Integer,Float> totalAmmountPerProduct =new HashMap<Integer, Float>();
+    static Map<Integer, Float> actualPay = new HashMap<Integer, Float>();
 
     public static void main(String[] args) throws ClassNotFoundException {    //psvm
         boolean bool = true;
@@ -102,14 +105,29 @@ public class Test {
                                 }
                             }
                             //如何关联订单和商品
-                            order.setProduct(products);//实际买了2个商品，购物车中存了两个商品
+                            order.setProduct(products);//订单关联商品  实际买了2个商品，购物车中存了两个商品
 
                             /*下订单*/
-                            Map<Integer,Integer> ammount =new HashMap<Integer, Integer>();
-                            ammount.put(1111,2);
-                            ammount.put(2222,1);
+                            order.setAmmount(ammount);//关联购买数量
 
-                            order.setAmmount(ammount);
+                            /*设置总价*/    //商品价格*数量
+                            for(Product product:products){
+                                System.out.println("商品价格："+product.getPrice());
+                                //如何获取商品购买数量
+                                int cou =ammount.get(Integer.parseInt(product.getId()));//多态，向上转型
+                                totalAmmountPerProduct.put(Integer.parseInt(product.getId()),product.getPrice()*cou);
+                            }
+                            order.setTotalAmmountPerProduct(totalAmmountPerProduct);//关联每个商品总价
+
+                            /*实付款*/
+
+                            for(Product product:products){
+                                //如何获取商品购买数量
+                                int coun =ammount.get(Integer.parseInt(product.getId()));//多态，向上转型
+                                actualPay.put(Integer.parseInt(product.getId()),product.getPrice()*coun);
+                            }
+                            order.setActualPay(actualPay);//关联每个商品总价
+
 
                             CreateOrder.createOrder(order);
 
@@ -160,8 +178,15 @@ public class Test {
             System.out.println("\t\t" + product.getDesc());
         }
         /*遍历数组*/
-        System.out.println("请输入商品的ID，把该商品加入购物车");
-        String pId = sc.next();//加入商品数量
+        System.out.println("请输入商品的ID以及购买数量，商品ID和购买数量用逗号分开，例：1111,4--把该商品加入购物车");
+        String pInfo=sc.next();
+        String str[] =pInfo.split(",");
+
+        String pId = str[0];//商品ID
+        String num=str[1];//商品数量
+
+        ammount.put(Integer.parseInt(pId),Integer.parseInt(num));
+
         ReadProductExcel readProductExcel1 = new ReadProductExcel();
         inPro = null;
         inPro = Class.forName("Test").getResourceAsStream("/product.xlsx");//输入流的方式，不要把路径写死

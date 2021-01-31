@@ -11,8 +11,9 @@ public class Order {
     private Map<Integer,Integer> ammount;//数量  无法表达出买了几个哪种商品
     //商品 个数
     //Map结构
-    private float totalPay;//总价
-    private float actualPay;//实付款
+    private Map<Integer,Float>totalAmmountPerProduct;//每个商品总价
+    //private float totalPay;//总价
+    private Map<Integer,Float>actualPay;//实付款
     private Date orderDate;
 
     public User getUser() {
@@ -39,19 +40,20 @@ public class Order {
         this.ammount = ammount;
     }
 
-    public float getTotalPay() {
-        return totalPay;
+    public Map<Integer, Float> getTotalAmmountPerProduct() {
+        return totalAmmountPerProduct;
     }
 
-    public void setTotalPay(float totalPay) {
-        this.totalPay = totalPay;
+    public void setTotalAmmountPerProduct(Map<Integer, Float> totalAmmountPerProduct) {
+        this.totalAmmountPerProduct = totalAmmountPerProduct;
     }
 
-    public float getActualPay() {
+
+    public Map<Integer, Float> getActualPay() {
         return actualPay;
     }
 
-    public void setActualPay(float actualPay) {
+    public void setActualPay(Map<Integer, Float> actualPay) {
         this.actualPay = actualPay;
     }
 
